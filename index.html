@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <!-- 선택자 -->
+     <h1 class="title">안녕하세여</h1>
+     <p class="text">글자1</p>
+     <div class="box">
+        <p>박스</p>
+     </div>
+     <script>
+        // const title = document.querySelector(".title")
+        // $ = 제이쿼리 시작
+        // $() = html에서 요소를 찾기
+        // .css = 스타일 변경
+        $(".title").css("color", "blue")
+        // $(".text").css("fontSize", "30px")
+        $(".text").css({
+            "fontSize" : "30px",
+            "color" : "red" ,
+            "backgroundColor" : "black",
+            "padding" : "20px"
+        })
+
+        // 여러 개 선택
+        $("h1 , .text").css({
+            backgroundColor : "yellow",
+        })
+
+        // 자식 선택
+        $(".box p").css({
+            width : "500px",
+            height : "500px",
+            backgroundColor : "pink",
+        })
+        
+     </script>
+</body>
+</html>

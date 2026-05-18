@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        margin: 10px;
+        width: 150px;
+        height: 150px;
+        border: 1px dashed pink;
+        transition: all 0.3s;
+        background-color: rgb(185, 255, 185);
+      }
+      .click {
+        width: 100px;
+        height: 100px;
+        transition: all 0.3s;
+        background-color: antiquewhite;
+      }
+    </style>
+    <script src="js/jquery-3.7.1.min.js"></script>
+  </head>
+  <body>
+    <!-- click() -->
+    <button id="clickBtn">클릭~</button>
+    <div class="box clickBox">클릭 박스</div>
+    <button id="click">오렌지</button>
+    <div class="click">짠</div>
+
+    <!-- dbclick() -->
+    <div class="box dbBox">더블클릭</div>
+
+    <!-- mouseenter(), mouseleave() -->
+     <div class="box hoverBox">호버</div>
+
+<!-- focus(), blur() -->
+<div class="form">
+    <input type="text" class="focusInput" placeholder="입력하세요">
+    <div class="msg"></div>
+</div>
+
+    <script>
+      $("#clickBtn").click(() => {
+        $(".clickBox").css({
+          width: "150px",
+          height: "150px",
+          backgroundColor: "pink",
+        });
+      });
+
+      $("#click").click(() => {
+        $(".click").css({
+          width: "200px",
+          height: "200px",
+          backgroundColor: "orange",
+        });
+      });
+
+      // 더블클릭(this)
+      // $(".dbBox").dblclick(()=>{})
+      $(".dbBox").dblclick(function () {
+        console.log(this);
+        $(this).css({
+          width: "200px",
+          height : "200px",
+          backgroundColor: "darkblue",
+        });
+        $(this).text("더블클릭 했다!")
+      });
+
+    //   호버 기능 mouseenter(), mouseleave()
+    // $(".hoverBox").mouseenter(function(){
+    //     $(this).css({
+    //         backgroundColor : "lightyellow",
+    //         transform : "scale(1.2)",
+    //     })
+    // })
+    // $(".hoverBox").mouseleave(function(){
+    //     $(this).css({
+    //         backgroundColor : "lightpink",
+    //         transform : "scale(1)"
+    //     })
+    // })
+    $(".hoverBox").hover(function(){
+        $(this).css({
+            backgroundColor : "lightyellow",
+            transform : "scale(1.2)",
+        });
+    }, function(){
+        $(this).css({
+            backgroundColor : "lightpink",
+            transform : "scale(1)"
+        })
+    })
+
+    $(".focusInput").focus(function(){
+        $(this).css({
+            color : "#fff",
+            backgroundColor : "black",
+            border : "3px solid yellow"
+        })
+        $(".msg").text("입력중...")
+    })
+    $(".focusInput").blur(function(){
+        $(this).css({
+            backgroundColor : "pink",
+            color : "#333",
+            border : "3px solid green"
+        })
+        $(".msg").text("입력 종료!")
+    })
+    </script>
+  </body>
+</html>
