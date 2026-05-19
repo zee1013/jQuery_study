@@ -38,7 +38,17 @@ $(function(){
 // })
 
 // 7. 전체 메뉴 + 헤더 배경 ===============================================
-$(".menu").hover(function(){
-    $(".subMenu , .header-bg").stop().slideToggle(400)
+// $(".menu").hover(function(){
+//     $(".subMenu , .header-bg").stop().slideToggle(400)
+// })
+
+// 8. li 서브메뉴 + 헤더 배경 ==============================================
+$(".menu>li").hover(function(){
+    $(this).find(".subMenu").stop().slideDown(400)
+    $(".header-bg").stop().slideDown(400)
+},
+function(){
+    $(this).find(".subMenu").stop().slideUp(400)
+    $(".header-bg").stop().slideUp(400)
 })
 })
