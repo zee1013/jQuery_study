@@ -1,0 +1,82 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  font-size: 16px;
+  background-color: #fff;
+  color: #666;
+}
+ul,
+li {
+  list-style: none;
+}
+a {
+  display: block;
+  text-decoration: none;
+  color: #666;
+}
+// 탭 메뉴
+    $(".tabMenu>li>a").click(function(){
+        // console.log(this);
+        $(this).parent().addClass("active").siblings().removeClass("active")
+    })
+/* 전체 탭 메뉴 영역 */
+.container{
+    max-width: 1200px;
+    margin: 100px auto;
+}
+.tabMenu{
+    position: relative;
+    height: 200px;
+    /* max-width: 1200px; */
+    /* margin: 100px auto; */
+}
+.tabMenu>li{
+    position: absolute;
+}
+.tabMenu>li>a{
+    width: 100px;
+    border-radius: 50px;
+    line-height: 40px;
+    text-align: center;
+    background-color: rgb(215, 233, 248);
+}
+.tabMenu>li.active>a{
+    color: #fff;
+    background-color: rgb(65, 134, 225);
+}
+.tabMenu>li:last-child>a{
+    /* position: relative; */
+    position: absolute;
+    left: 100px;
+}
+/* 탭 메뉴 내용 영역 : 공지사항 */
+.notice, .gallery{
+    width: 500px;
+    display: none;
+    padding: 20px;
+    background-color: #f3f7fa;
+}
+.tabMenu>li.active>div{
+    display: block;
+}
+.notice a{
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+.notice ul li:nth-child(even)>a{
+    background-color: #d0e3f5;
+}
+/* 탭 메뉴 내용 영역 : 갤러리 */
+.gallery{
+    position: absolute;
+    top: 40px;
+}
+.gallery ul{
+    display: flex;
+    gap: 20px;
+}
